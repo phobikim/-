@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">	
+	window.onload = function(){
+		var today = new Date();
+		var hours = today.getHours();
+		
+		document.getElementById("result").innerHTML = hours;
+		document.getElementById("img").src = "sun.png";
+		if(hours >= 12){
+			document.getElementById("img").src = "moon.png";
+		}
+		
+	}
+</script>
+<span id="result"></span><br>
+<img id="img">
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+
+$(배열).each(function(index, item){})
+$(배열).each(function(index){})
+
+
+
+$.each(배열,function(index, item){})
+$.each(배열,function(index){})

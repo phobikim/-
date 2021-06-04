@@ -1,0 +1,13 @@
+다른 곳으로 옮기기
+	<jsp:forward>
+	response.sendRedirect()
+	
+	
+----------------------------------------------------
+
+login.html		아이디와 암호를 입력
+loginOK.jsp		올바른 회원인지 판별하여		(아이디는 tiger, 암호는 1234) 
+					올바른 회원이면 	main.jsp	이동시키고
+					올바른 회원이 아니면 login.html 로 이동시키도록 합시다.
+					
+main.jsp						

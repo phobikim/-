@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	/*
+		$(document).on("click",'tr', function(){
+			alert("ok");		
+		});
+	*/
+	
+		let arr;
+		function loadCustomerList(){
+			$("#customer_list").empty();
+		
+			$.ajax({url:"/listCustomer.do",success:function(data){
+				
+				arr = eval("("+data+")");				
+				$.each(arr, function(index, c){
+					let tr = $("<tr></tr>");
+					$(tr).attr("idx",index);
+					
+					$(tr).click(function(){
+						let idx = $(this).attr("idx");
+						let customer = arr[idx];
+						$("#no").html(customer.no);
+						$(".no").val(customer.no);
+						$("#name").val(customer.name);
+						$("#email").val(customer.email);
+						$("#phone").val(customer.phone);
+						$("#tot").html(customer.tot);
+					});
+					
+					let td_no = $("<td></td>").html(c.no);
+					let td_name = $("<td></td>").html(c.name);
+					$(tr).append(td_no,td_name);
+					$("#customer_list").append(tr);
+				});
+				
+			}});		
+		}
+		
+		
+		
+		$("#btnInsert").click(function(){
+			let data = $("#f").serializeArray();
+			//  {name:'이순신', email:'tiger@gmail.com', phone:'01011112222'}	
+			
+			$.ajax({url:"/insertCustomer.do",data:data,success:function(data){
+				loadCustomerList();
+			}});
+		});
+		
+		
+		$("#btnNew").click(function(){
+			$("#no").html("");
+			$("#tot").html("");
+			$("#name").val("");
+			$("#email").val("");
+			$("#phone").val("");
+		});
+		
+		
+		$("#btnRead").click(function(){
+			loadCustomerList();
+		});
+		
+		$("#btnUpdate").click(function(){
+			let data = $("#f").serializeArray();
+			$.ajax({url:"/updateCustomer.do",data:data,success:function(){
+				loadCustomerList();
+			}});
+		});
+		
+		
+		$("#btnDelete").click(function(){
+			let no = $(".no").val();
+			let data = {no:no};
+			$.ajax({url:"/deleteCustomer.do",data:data,success:function(){
+				loadCustomerList();
+			}});			
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>회원목록</h2>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>고객번호</th>
+				<th>고객이름</th>
+			</tr>
+		</thead>
+		
+		<tbody id="customer_list"></tbody>
+	</table>
+	<button id="btnRead">회원목록 읽어오기</button>
+	<button id="btnNew">새로운 회원 등록하기</button>
+	
+	<div id="customer_detail">
+		<form id="f">
+			회원번호 : <span id="no"></span> <br>
+			<input type="hidden" name="no" class="no">
+			회원이름 : <input type="text" id="name" name="name"><br>
+			메일주소 : <input type="text" id="email" name="email"><br>
+			전화번호 : <input type="text" id="phone" name="phone" ><br>
+			사용금액 : <span id="tot"></span><br>
+		</form>
+	</div>
+	<button id="btnInsert">등록</button>
+	<button id="btnUpdate">수정</button>
+	<button id="btnDelete">삭제</button>
+</body>
+</html>
+
+
+

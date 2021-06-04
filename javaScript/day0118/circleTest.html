@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 각각의 버튼을 누르면 원의 둘레와 원의 면적을 계산하여 결과를 출력해 보도록 해 봅니다.
+	function calcRound(){
+		//2*3.14*반지름
+		var radius = eval(document.getElementById("radius").value)
+		var r = 2*3.14*radius;
+		document.getElementById("resultRound").innerHTML = r;
+	}
+	
+	function calcArea(){
+		//3.14*반지름*반지름
+		var radius = eval(document.getElementById("radius").value)
+		var r = 3.14*radius*radius;
+		document.getElementById("resultArea").innerHTML = r;
+	}
+</script>
+</head>
+<body>
+	반지름 : <input type="text" id="radius"><br>
+	<button onclick="calcRound()">원의 둘레</button><span id="resultRound"></span><br>
+	<button onclick="calcArea()">원의 면적</button><span id="resultArea"></span>
+</body>
+</html>
+
+
+
+
+

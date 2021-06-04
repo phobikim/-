@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js
+"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnLogin").click(
+		let data = $("#f").serializeArray();
+		$.ajax({url:"MemberOK.do",data:data,success:function(res){
+			if(res == "1"){
+				sessionStorage.setItem("member":"ok");
+				location.href="main.html";
+				
+			}
+		}});
+	);
+});
+</script>
+</head>
+<body>
+	<form id="f">
+		<input type="text" name="id" id="id"><br>
+		<input type="password" name="pwd" id="pwd"><br>		
+	</form>
+	<button id="btnLogin">로그인</button>
+</body>
+</html>

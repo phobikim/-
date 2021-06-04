@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btnAdd= document.getElementById("btnAdd");
+			
+			btnAdd.onclick = function(){
+				console.log("이벤트 발생")
+				var n = eval( document.getElementById("n").value );
+				var tot = 0;
+				console.log(n)			
+				for ( i = 1; i <=n ; i++) {
+					tot += i;
+				}//end for
+				console.log(tot)				
+				a = document.getElementById("result").innerHTML;
+				console.log(a)
+				document.getElementById("result").innerHTML = tot;
+			}//btnAdd
+		}//wof
+	</script>
+</head>
+<body>
+	어디까지 더할까요?
+	<input type="text" id="n">
+	<button id="btnAdd">더하기</button><br>
+	결과 : <span id="result">hello</span>
+</body>
+</html>

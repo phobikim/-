@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.insert{
+		visibility: visible;		
+	}
+	
+	.detail{
+		visibility: hidden;
+		display: none;
+	}
+	
+	.pageNUM{
+		margin: 10px;
+		cursor: pointer;	
+	}
+	
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let arr;
+	let idx;
+	let totalPage;
+
+	//입력창 지우기
+	function clearInput(){
+		$("#no").val("");
+		$("#name").val("");
+		$("#qty").val("");
+		$("#price").val("");
+		$("#uploadFile").val("");
+		$(".detail").css("visibility","hidden");			
+	}
+
+	//모든 상품목록을 Ajax통신으로 요청하는 함수 시작
+	function loadGoodsList(pageNUM){
+		$("#goodsList").empty();
+		let data = {pageNUM:pageNUM};
+		$.ajax({url:"listGoods.do",data:data ,success:function(data){	
+			arr = []	
+			data = eval("("+data+")");
+			arr = data.list;	
+			totalPage = data.totalPage;
+			$("#page").empty();
+			
+			//페이지번호 출력 시작
+			for(i=1;i<=totalPage;i++){
+				let span = $("<span class='pageNUM'></span>").html(i);
+				$("#page").append(span);
+				
+				$(span).click(function(){
+					let pageNUM = $(this).text();
+					 loadGoodsList(pageNUM);
+				});
+				
+			}
+			
+			//페이지번호 출력 종료
+			
+			
+					
+			$.each(arr, function(index, g){
+				let tr = $("<tr></tr>").attr("idx",index);;
+				
+				
+				$(tr).click(function(){
+					$("#uploadFile").val("");
+					idx = $(this).attr("idx");
+					let goods = arr[idx];
+					$("#no").val(goods.no);
+					$("#name").val(goods.name);
+					$("#qty").val(goods.qty);
+					$("#price").val(goods.price);	
+					$(".fname").val(goods.fname);
+					
+					$(".insert").css("visibility","hidden");
+					$("#fname").attr("src","img/"+goods.fname);	
+					$(".detail").css("visibility","visible");
+					$(".detail").css("display","inline");
+												
+				});
+				
+								
+				let td1 = $("<td></td>").html(g.no);			
+				let td2 = $("<td></td>").html(g.name);			
+				$(tr).append(td1, td2);
+				$("#goodsList").append(tr);
+			});		
+		}});
+	}		
+	//함수종료
+
+
+	//새로운상품 시작
+	$("#btnNew").click(function(){	
+		$(".detail").css("visibility","hidden");
+		$(".detail").css("display","none");
+		$(".insert").css("visibility","visible");
+		clearInput();
+	});
+	
+	//새로운상품 끝
+
+
+	
+	//상품삭제 시작
+	$("#btnDelete").click(function(){
+		let data = {no: $("#no").val()};
+		$.ajax({url:"/deleteGoods.do",data:data,success:function(r){
+			loadGoodsList();
+			clearInput();		
+		}});		
+	});
+	
+	//상품삭제 끝
+	
+	
+	
+	
+	//상품수정 시작
+	$("#btnUpdate").click(function(){
+		let data = new FormData(document.getElementById("f"));
+		$.ajax({
+			url:"/updateGoods.do",
+			data:data,
+			type:"post",
+			processData:false,
+			contentType:false,
+			success:function(r){			
+				loadGoodsList()
+				console.log("변경전 이미지:"+$("#fname").attr("src"));
+				console.log("인덱스 : " + idx);
+				
+				setTimeout( function(){
+					console.log("변경할 이미지:" + arr[idx].fname);				
+					$("#fname").attr("src","img/"+arr[idx].fname);
+				},300);			
+			}		
+		});
+	});
+	
+	//상품수정 끝
+
+
+
+
+	//상품등록 시작
+	$("#btnInsert").click(function(){
+		let data = new FormData( document.getElementById("f") );
+		$.ajax({
+			url:"/insertGoods.do",
+			type:"post",
+			processData:false,
+			contentType:false,
+			data:data,
+			success:function(r){
+				loadGoodsList();
+			}
+		});
+	});	
+	//상품등록 끝
+
+
+	loadGoodsList(1);
+	
+});
+</script>
+</head>
+<body>
+	<h2>상품목록</h2>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>상품번호</th>
+				<th>상품명</th>
+			</tr>
+		</thead>
+		
+		<tbody id="goodsList">
+		</tbody>
+	</table>
+	
+	<div id="page">		
+	</div>
+	
+	<hr>
+	<form id="f" method="post" enctype="multipart/form-data">
+		상품번호 : <input type="text" name="no" id="no"><br>
+		상품이름 : <input type="text" name="name" id="name"><br>
+		상품수량 : <input type="text" name="qty" id="qty"><br>
+		상품가격 : <input type="text" name="price" id="price"><br>
+		<input type="hidden" name="fname" class="fname">
+		상품사진 : <input type="file" id="uploadFile" name="uploadFile"><br>		
+	</form>
+	<button id="btnInsert" class="insert">등록</button>
+	<br>
+	<img id="fname" width="100" height="100" class="detail"><br>
+	<button id="btnUpdate" class="detail">수정</button>
+	<button id="btnDelete" class="detail">삭제</button>
+	<button id="btnNew" >새로운 상품</button>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+

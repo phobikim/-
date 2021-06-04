@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btn1").onclick = function(){
+		location.href = "http://www.hanb.co.kr";
+	}
+	
+	document.getElementById("btn2").onclick = function(){
+		location.assign( "http://www.hanb.co.kr");
+	}
+	
+	document.getElementById("btn3").onclick = function(){
+		location.replace("http://www.hanb.co.kr");
+	}
+
+	document.getElementById("btn4").onclick = function(){
+		location = "http://www.hanb.co.kr";
+	}
+}
+</script>
+</head>
+<body>
+<button id="btn1">이동1</button>
+<button id="btn2">이동2</button>
+<button id="btn3">이동3</button>
+<button id="btn4">이동4</button>
+</body>
+</html>

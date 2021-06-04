@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	var day_str = ["일","월","화","수","목","금","토"];
+	
+	window.onload = function(){
+		//년도와 월을 출력
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = today.getMonth();
+		
+		var startDay = new Date(year, month, 1);
+		var day = startDay.getDay();
+		console.log(day);
+		
+		
+		var year_month_str = `<h2>${year}년 ${month+1}월</h2>`;
+		document.getElementById("year_month").innerHTML = year_month_str;
+		
+		//달력만들기
+		var r = "";
+		r += "<table border=1>";
+		r += "<tr>";
+		 
+		for(var a of day_str){
+			r += `<td>${a}</td>`;	
+		}
+		
+		r += "</tr><tr>";
+		
+		//그달의 1일의 요일만큼 빈칸을 출력해요
+		for(i=1;i<=day;i++){
+			r += "<td>&nbsp;</td>";
+		}
+		
+		
+		//날짜 출력하기
+		for(i=1;i<=31;i++){
+			r += `<td>${i}</td>`;
+			if((day+i) % 7 == 0){
+				r += "</tr><tr>";
+			}
+		}
+		
+		r += "</tr>";
+		r += "</table>"
+		
+		document.getElementById("result").innerHTML = r;
+		
+	}
+</script>
+</head>
+<body>
+<div id="year_month"></div>
+<div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+

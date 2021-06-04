@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	for(i=0;i<20;i++){
+		$("<h1></h1>").html("Hello").appendTo("body");
+	}
+	
+	$(window).scroll(function(){
+		let sh = $(window).height() +  $(window).scrollTop();
+		let dh = $(document).height();
+		
+		if((sh+200) >= dh)
+		{
+			for(i=0;i<20;i++){
+				$("<h1></h1>").html("Hello").appendTo("body");
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

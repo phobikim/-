@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	 let pro = function(){
+		 let today = new Date();
+		 let hours = today.getHours();
+		 let minutes = today.getMinutes();
+		 let seconds = today.getSeconds();
+		 
+		 let r = `현재 시각은 ${hours}시 ${minutes}분 ${seconds}초 입니다.`;
+		 
+		 document.getElementById("result").innerHTML = r;
+	 }
+	 
+	 setInterval( pro, 1000  );
+}
+</script>
+</head>
+<body>
+<h2 id="result"></h2>
+</body>
+</html>

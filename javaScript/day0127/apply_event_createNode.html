@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("h1").on("click",function(){
+		let h1 = $("<h1></h1>").html(  $(this).html()   );
+		$(h1).appendTo("body");
+		
+		$(h1).on("click",function(){
+			let h1 = $("<h1></h1>").html(  $(this).html()   );
+			$(h1).appendTo("body");
+		});
+	})
+});
+</script>
+</head>
+<body>
+<h1>홍길동</h1>
+</body>
+</html>

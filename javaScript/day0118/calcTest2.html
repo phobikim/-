@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+function calc(op){
+	var n1 = eval(document.getElementById("n1").value);
+	var n2 = eval(document.getElementById("n2").value);
+	var r = 0;
+	if(op=='+'){
+		r = n1 + n2;
+	}else if(op =='-'){
+		r = n1 - n2;
+	}else if(op == '*'){
+		r = n1 * n2;
+	}else{
+		r = n1/ n2;
+	}
+	
+	document.getElementById("result").innerHTML = r;	
+}
+
+
+</script>
+</head>
+<body>
+<!-- 사용자한테 두개의 수를 입력받아 더하기 하여 결과를 출력하는 스크립트를 작성 -->
+
+첫번째 수 : <input type="text" id="n1"><br>
+두번째 수 : <input type="text" id="n2"><br>
+<button onclick="calc('+')">더하기</button>
+<button onclick="calc('-')">빼기</button>
+<button onclick="calc('*')">곱하기</button>
+<button onclick="calc('/')">나누기</button>
+결과 : <span id="result"></span>
+</body>
+</html>
+

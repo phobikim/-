@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+	background-color: orange;
+	width: 100px;
+	height: 100px;
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnSetCss").click(function(){
+		$("div").css("backgroundColor","blue");
+	});
+	
+	$("#btnReadCss").click(function(){
+		let data = $("div").css("backgroundColor");
+		alert(data);
+	});
+});
+</script>
+</head>
+<body>
+<div></div>
+<hr>
+<button id="btnSetCss">css설정하기</button>
+<button id="btnReadCss">css읽어오기</button>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.active{
+		background-color: yellow;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	let sel_li;
+	
+	$("#btnAdd").click(function(){
+		let food = $("#input").val();
+		let li = $("<li></li>").text(food);
+		$("#food_list").append(li);
+		
+		$(li).click(function(){
+			sel_li = this;
+			$("li").removeClass("active");
+			$(this).addClass("active");
+			$("#input").val(  $(this).text() );
+		});
+	});
+	
+	
+	$("#btnUpdate").click(function(){
+		$(sel_li).text( $("#input").val()   );
+	});
+	
+	$("#btnDelete").click(function(){
+		$(sel_li).remove();
+	});
+})
+</script>
+</head>
+<body>
+	<h2>좋아하는 음식을 추가하세요</h2>
+	<ul id="food_list"></ul>
+	<hr>
+	<input id="input" type="text">
+	<input id="btnAdd" type="button" value="등록">
+	<input id="btnUpdate" type="button" value="수정">
+	<input id="btnDelete" type="button" value="삭제">
+</body>
+</html>

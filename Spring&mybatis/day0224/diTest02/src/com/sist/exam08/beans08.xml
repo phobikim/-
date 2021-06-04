@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="book" class="com.sist.exam08.Book">
+		<constructor-arg value="100"/>
+		<constructor-arg value="재미있는 스프링"/>
+		<constructor-arg value="35000"/>
+		<constructor-arg value="쌍용"/>
+	</bean>
+
+	<bean id="bookDao" class="com.sist.exam08.BookDao">
+		<constructor-arg ref="book"/>
+		<constructor-arg value="10"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function max(a,b){
+		let r = a;
+		if(b>r){
+			r = b;	
+		}
+		return r;
+	}
+	
+	//alert(max(3,9));
+	
+	let getMaxArr = function(arr){
+		let r = arr[0];
+		
+		for(i=1;i<arr.length;i++){
+			if(arr[i] > r){
+				r = arr[i];
+			}
+		}
+		return r;
+	}
+	
+	let age_list = [29,26,27,26,32,28];
+	alert(getMaxArr(age_list));
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

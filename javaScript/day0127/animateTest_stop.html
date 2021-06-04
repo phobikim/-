@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		background: orange;
+		width: 50px;
+		height: 50px;
+		position:relative;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("div").click(function(){
+		$(this).animate({
+			left:'+=100'},
+			2000).animate({
+				width:'+=100'},
+				2000).animate({
+					height:'+=100'},
+					2000);
+		
+		
+		
+	});
+	
+	//stop(clearQueue,goToEnd)
+	
+	$("#btnA").click(function(){
+		$("div").stop(true,true);
+	});
+	
+	$("#btnB").click(function(){
+		$("div").stop(true,false);
+	});
+	
+	$("#btnC").click(function(){
+		$("div").stop(false,true);
+	});
+	
+	$("#btnD").click(function(){
+		$("div").stop(false,false)
+	});
+	
+})
+</script>
+</head>
+<body>
+<div></div>
+<button id="btnA">stop(true,true)</button>
+<button id="btnB">stop(true,false)</button>
+<button id="btnC">stop(false,true)</button>
+<button id="btnD">stop(false,false)</button>
+
+</body>
+</html>
+
+
+
+
+

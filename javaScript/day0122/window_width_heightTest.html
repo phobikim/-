@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnOK").onclick = function(){
+		
+		
+		r = "<ul>";
+		r += `<li>innerWidth : ${window.innerWidth}</li>`;
+		r += `<li>innerHeight : ${window.innerHeight}</li>`;
+		r += `<li>outterWidth : ${window.outerWidth}</li>`;
+		r += `<li>outterHeight : ${window.outerHeight}</li>`;
+		r += "</ul>";
+		document.getElementById("result").innerHTML = r;
+		
+	}
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+<button id="btnOK">윈도우 크기 정보 확인</button>
+</body>
+</html>

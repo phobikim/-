@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	#man{
+		position: absolute;
+		left: 10px;
+		top: 500px;
+	}
+	
+	#main{
+		width: 800px;
+		height: 600px;	
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		document.body.onmouseup = function(e){
+			let x = e.x;
+			let y = e.y;
+			//alert(`x:${x},y:${y}`);
+			let man = document.querySelector("#man");
+			man.style.left = `${x}px`;
+			man.style.top = `${y}px`;
+		}
+	}
+</script>
+</head>
+<body>
+<div id="main">
+<img  id="man" src="./images/man.png">
+</div>
+</body>
+</html>
+
+
+

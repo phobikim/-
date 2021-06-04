@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dept" class="com.sist.exam02.Dept">
+		<constructor-arg value="10"/>
+		<constructor-arg value="개발팀"/>
+		<constructor-arg value="서교동"/>
+	</bean>
+
+
+<!-- 
+	<bean id="dept" class="com.sist.exam02.Dept">
+		<constructor-arg>
+			<value>10</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>개발팀</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>서교동</value>
+		</constructor-arg>
+	</bean>
+-->
+
+	
+</beans>

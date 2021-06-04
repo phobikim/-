@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let goodsImage = document.querySelector("#goodsImage");
+	let btn_list = document.querySelectorAll("button");
+	
+	let fname_list = ['ball1','cloth1','shoe1','stock1']
+	
+	for(i=0; i<btn_list.length; i++){
+		btn_list[i].setAttribute("idx",i);		
+		btn_list[i].onclick = function(){			
+			let idx = this.getAttribute("idx");			
+			goodsImage.src = `./images/${fname_list[idx]}.jpg`;
+		}
+	}		
+}
+</script>
+
+</head>
+<body>
+	<button>축구공</button>
+	<button>축구화</button>
+	<button>유니폼</button>
+	<button>스타킹</button>
+	<hr>
+	<img id="goodsImage">
+</body>
+</html>

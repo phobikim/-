@@ -1,0 +1,117 @@
+MVC 패턴을 적용하여 도서관리 시스템 구현
+
+기능			 서비스명			요청방식	Front Controller	 Model					process				View(jsp)
+----------------------------------------------------------------------------------------------------------------------
+- 도서등록	insertBook.do	get		SistControlloer		InsertBookAction 							insertBook.jsp
+			insertBookOk.do	post	SistControlloer		InsertBookOkAction		BookDao.insert()	insertBookOk.jsp
+
+- 도서목록	listBook.do		get		SistControlloer		ListBookAction			BookDao.findAll()	listBook.jsp
+
+- 도서상세	detailBook.do	get		SistControlloer		DetailBookAction		BookDao.getBook()	detailBook.jsp
+
+- 도서수정	updateBook.do	get		SistControlloer		UpdateBookAction		BookDao.getBook()	updateBook.jsp
+			updateBookOk.do	post	SistControlloer		UpdateBookOkAction		BookDao.update()	updateBookOk.jsp
+
+- 도서삭제	deleteBook.do	get		SistControlloer		DeleteBookOkAction		BookDao.delete()	deleteBookOk.jsp
+
+
+---------------------------------------------------------------------------------------------------------------------------\
+
+
+만약에 사용자가 도서 목록을 보기 위해서 
+	listBook.do라고 요청했다면
+	SistController는
+	ListBookAction의 객체를 생성하여 
+	BookDao의 findAll을 호출하는 
+	메소드를 호출해야 할 거에요!
+	그 메소드이름이 list()라고 가정합시다.
+	
+또,  사용자가  도서를 삭제하기 위하여 
+	deletBook.do라고 요청했을때에는 
+	프론트컨트롤러인 SistController가 
+	해당 일처리를 위한 DeleteBookOkAction의 객체를 생성 한다음
+	 Dao의 삭제를 요청하는 일처리를 수행하기 위한 메소드를 호출해야 할 거에요.
+	 그 메소드 이름이 delete()라고 가정합시다.
+	 
+여기서, 각각의 일처리를 수행하기 위한 Action의 메소드이름이
+제각각 다르다면  프론트컨트롤가 이를 제어하기는 번거로운 일이에요!
+
+그래서, 모든 Action들이 일처리를 위한 메소드를 하나로 통일 시키면 좋겠어요.
+그래서 모든Action들은 SistAction인터페이스의 후손이 되도록 할 거에요!
+
+interface SistAcation{
+	public String pro(){
+	
+	}
+}
+
+이렇게 만들어 두면 모든 Action들은 반드시 pro()라는 메소드를 오버라이딩 해야 해요.
+예를들어 이렇게요,,
+
+class ListBookAction implements SistAction{
+	public String pro(){
+		
+	}
+}
+
+
+class DeletBookOkAction implements SistAction{
+	public String pro(){
+		
+	}
+}
+
+이렇게 해 두면 
+프론트 컨틀로러가 각각에 Action에 따른
+	동일한 메소드를 호출할 수 있어요!
+
+	
+---------------------------------------------------------------------------------
+1) 웹어플리케이션의 정문앞에 서서 사용자의 요청을 파악하는 
+	Front Controller의 역할을 수행하는 
+	SistController를 만듭시다.
+
+2) web.xml에 SistController를 설정
+
+3) 모든 Action들이 가져할 메소드를 일반화 하기 위한 
+	SistAction 인터페이스를 정의합니다.	
+	
+
+4) 도서목록의 처리를 위한 ListBookAction을 만들어 봅시다.
+
+5) ListBookAction에서 필요로 하는 
+		BookVo, BookDao를 만들어 봅시다.
+		
+		
+		
+
+
+
+------------------------------------------------------
+
+jstl :	자바문법을 대신하는 태그를 말합니다. 	
+
+		반복문이나 선택문의 자바문법을 대신하는 
+		jsp에서 사용할 수 있는 표준 태그를 말합니다.
+		
+		
+		
+el(표현언어) 	:	표현식(<%= %>)를 대신하여 출력을 위한 용도로 사용합니다.
+				<%= a %>
+				${a}
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 

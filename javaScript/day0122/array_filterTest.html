@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+let data = [52,273,32,64,72];
+/*
+let data2 = [];
+for(i=0;i<data.length;i++){
+	if(data[i] % 2 == 0){
+		data2.push(data[i]);
+	}
+}*/
+
+let data2 = data.filter( (item, index)=>{
+	return item % 2 == 0;
+} ); 
+console.log(data2);
+
+
+</script>
+</body>
+</html>

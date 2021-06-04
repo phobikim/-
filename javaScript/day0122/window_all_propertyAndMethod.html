@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	window.onload = function(){
+		let r = "<ul>";
+		for(i in window){
+			r += `<li>${i}==>${window[i]}</li>`;
+		}
+		r += "</ul>";
+		document.getElementById("result").innerHTML = r;
+	}
+
+</script>
+</body>
+<div id="result"></div>
+</html>

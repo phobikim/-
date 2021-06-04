@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 이름:김현규, 나이:28, 주소:서울, 전화:010-1234-5678
+	let member = {
+			name:'김현규',
+			age:28,
+			addr:'서울',
+			tel:'010-1234-5678'
+	}
+		
+	window.onload = function(){
+		document.getElementById("btnMemberInfo").onclick = function(){
+			let r = "<ul>";
+			for(i in member){
+				r += `<li>${member[i]}</li>`;
+			}
+			r + "</ul>";
+			document.getElementById("result").innerHTML = r;
+		}		
+	}
+	
+</script>
+</head>
+<body>
+	<div id="result"></div>
+	<button id="btnMemberInfo">회원의 정보 확인</button>
+</body>
+</html>
+
+
+

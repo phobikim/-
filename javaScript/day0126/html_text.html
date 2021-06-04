@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//data = "hello";
+	data = "<img src='./images/ball1.jpg'/>"
+	$("#btnHTML").click(function(){
+		$("p").html(data);
+	});
+	
+	$("#btnTEXT").click(function(){
+		$("p").text(data);
+	});
+	
+});
+</script>
+</head>
+<body>
+	<p></p>
+	<button id="btnHTML">html()</button>
+	<button id="btnTEXT">text()</button>	
+</body>
+</html>

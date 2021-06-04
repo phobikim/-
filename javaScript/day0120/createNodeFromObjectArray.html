@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let member_list = [
+		{name:'이순신',age:20,addr:'서울',tel:'010-1111-1111'},
+		{name:'유관순',age:22,addr:'광주',tel:'010-2222-1111'},
+		{name:'김유신',age:23,addr:'전주',tel:'010-3333-1111'},
+		{name:'강감찬',age:40,addr:'대구',tel:'010-4444-1111'},
+		{name:'문재인',age:60,addr:'울산',tel:'010-5555-1111'}
+	]
+	
+	window.onload = function(){
+		
+		document.getElementById("btnMemberInfo").onclick = function(){
+			let r = "<table border='1'>";
+			for(m of member_list){
+				r += "<tr>";
+				for(i in m){
+					r += `<td>${m[i]}</td>`;
+				}
+				r += "</tr>";
+			}
+			r += "</table>"
+			
+			document.getElementById("result").innerHTML = r;
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<div id="result"></div>
+	<button id="btnMemberInfo">회원의 정보 확인</button>
+</body>
+</html>
+
+
+
+
+
+
+
+

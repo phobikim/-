@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	let score_err = new Error("점수에는 음수가 올 수 없습니다.");
+	score_err.name = "Negative ScoreError";
+
+	try{
+		let score_list = [80,90,100,-80,70];
+		let tot = 0;
+		for(score of score_list){
+			if(score < 0){
+				throw score_err;
+			}
+			tot += score;
+		}
+		let avg = tot /score_list.length;
+		alert(`모든학생의 평균점수:${avg}`);
+	}catch(e){
+		alert(`다음과 같은 예외가 발생하였습니다. ${e.name}(${e.message})`)
+	}
+	
+</script>
+</body>
+</html>

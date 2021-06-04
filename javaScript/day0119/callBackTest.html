@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	sayAll = function(a,b){
+		a();
+		b();
+	}
+
+	sayKim = function(){
+		console.log("안녕, Kim!");
+	}
+	
+	sayHong = function(){
+		console.log("안녕, Hong!")
+	}
+	
+	//sayAll(sayKim, sayHong);
+	sayAll(function(){
+		console.log("안녕, Kim!");
+	}, function(){
+		console.log("안녕, Hong!")
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+

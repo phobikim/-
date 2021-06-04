@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+.active{
+	background: pink;
+}
+</style>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	/*
+	$("tr").click(function(){
+		alert("미래에 만들어진 노드에 이벤트가 먹나요?");
+	});*/
+	
+	
+	$(document).on("click","tr",function(){
+		$("tr").removeClass("active");
+		$(this).addClass("active");
+		let td_arr = $(this).find("td");
+		$("#no").val(  $(td_arr[0]).text()   );
+		$("#name").val(  $(td_arr[1]).text()   );
+		$("#publisher").val(  $(td_arr[2]).text()  );
+		$("#price").val(  $(td_arr[3]).text()  );
+	});
+		
+	
+	
+	let viewBookList = function(arr){
+		$("#bookList").empty();
+		
+		$.each(arr, function(i,item){
+			let tr = $("<tr></tr>");
+			$.each(item, function(key,value){
+				$("<td></td>").html(value).appendTo(tr);
+			});
+			$("#bookList").append(tr);
+		});
+	}
+	
+	
+	$("#btnDelete").click(function(){
+		let no = $("#no").val();
+		let data = {no:no};
+		$.ajax({url:"deleteBook.jsp",data:data,success:function(data){
+			$.ajax({url:"listBook.jsp",success:function(data){
+				viewBookList(data);
+			}});
+		}})
+	});
+	
+	$("#btnUpdate").click(function(){
+		let data = $("#input").serializeArray();
+		$.ajax({url:"updateBook.jsp",data:data,success:function(data){
+			$.ajax({url:"listBook.jsp",success:function(data){
+				viewBookList(data);
+			}});
+		}})
+	});
+	
+	
+	$("#btnRead").click(function(){
+		$.ajax({url:"listBook.jsp",success:function(data){
+			viewBookList(data);
+		}});
+	});
+	
+	$("#btnInsert").click(function(){
+		/* 
+		let no = $("#no").val();
+		let name = $("#name").val();
+		let publisher = $("#publisher").val();
+		let price = $("#price").val();
+		
+		let data = {no:no,name:name,publisher:publisher,price:price};*/
+		
+		let data = $("#input").serializeArray();
+		$.ajax({url:"insertBook.jsp",data:data,success:function(data){
+			$.ajax({url:"listBook.jsp",success:function(data){
+				viewBookList(data);
+			}});
+		}});
+		
+	});
+});
+</script>
+</head>
+<body>
+
+<form id="input">
+	도서번호 : <input type="text" name="no" id="no"><br>
+	도서명 : <input type="text" name="name" id="name"><br>
+	출판사 : <input type="text" name="publisher" id="publisher"><br>
+	가격 : <input type="text" name="price" id="price"><br>
+</form>
+<button id="btnInsert">도서정보 등록하기</button>	
+<button id="btnRead">도서정보 읽어오기</button>	
+<button id="btnUpdate">도서정보 수정하기</button>
+<button id="btnDelete">도서정보 삭제하기</button>
+<table border="1" width="80%">
+	<thead>
+		<tr>
+			<th>도서번호</th>
+			<th>도서명</th>
+			<th>출판사</th>
+			<th>가격</th>
+		</tr>
+	</thead>
+	<tbody id="bookList">	
+	</tbody>
+</table>	
+<textarea rows="10" cols="60"></textarea>
+</body>
+</html>
+
+

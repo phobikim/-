@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let userID = location.search;
+	//?no=3
+	userID= userID.substring( userID.indexOf("=")+1   )	
+	//alert(userID);
+
+	alert(`${userID}번 회원을 삭제하였습니다.`);
+	location.href = "location_searchTest.html";
+</script>
+</head>
+<body>
+
+</body>
+</html>

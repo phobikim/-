@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let fname_list = ["ball1.jpg","ball2.jpg","ball3.jpg","ball4.jpg","ball5.jpg"];
+		let name_list = ["나이키공1", "나이키공2","나이키공3","나이키공4","나이키공5"];
+		let price_list = [28000,32000,16000,9000,45000];
+		
+		let idx = 0;
+		setInterval(function(){
+			let fname = `./images/${fname_list[idx]}`;
+			let info = `상품명:${name_list[idx]} (가격:${price_list[idx]})`;
+			idx++;
+			document.getElementById("goods_image").src = fname;
+			document.getElementById("goods_info").innerHTML = info;
+			if(idx>=fname_list.length){
+				idx = 0;
+			}
+			
+		},1000);
+	}
+</script>
+</head>
+<body>
+	<img  src="" id="goods_image">
+	<h2 id="goods_info"></h2>
+</body>
+</html>
+
+
+

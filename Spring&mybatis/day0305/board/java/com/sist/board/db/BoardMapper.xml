@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+  
+  <select id="totBoard" resultType="java.lang.Integer">
+  	select count(*) from board
+  </select>
+
+  <update id="update">
+  	update board set title=#{title},content=#{content},fname=#{fname},fsize=#{fsize} where no=#{no} and pwd=#{pwd}
+  </update>
+
+  <delete id="delete">
+  	delete board where no=#{no} and pwd=#{pwd}  
+  </delete>
+  
+  <insert id="insert">
+  	insert into board values(seq_board.nextval,#{writer},#{pwd},#{title},#{content},#{ip},sysdate,0,#{fname},#{fsize})
+  </insert>
+
+  <select id="findAll" resultType="boardVo">
+    select * from board
+  </select>
+  
+  <select id="getBoard" resultType="boardVo">
+  	select * from board where no=#{no}
+  </select>
+</mapper>

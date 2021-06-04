@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("input[type=button]").click(function(){
+		let input_list = $("input[type=text]");
+		//alert( $(input_list[0]).val() );
+		let tr = $("<tr></tr>");
+		for(i=0; i<input_list.length; i++){
+			let td = $("<td></td>").text( $(input_list[i]).val() );
+			$(tr).append(td);
+		}
+		$("#member_list").append(tr);
+	});
+	
+})
+</script>
+</head>
+<body>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>나이</th>
+				<th>주소</th>
+			</tr>
+		</thead>
+		<tbody id="member_list"></tbody>
+	</table>
+
+	이름 : <input type="text"><br>
+	나이 : <input type="text"><br>
+	주소 : <input type="text"><br>
+	<input type="button" value="등록">
+</body>
+</html>
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="book" class="com.sist.exam07.Book"
+		p:no="1000"
+		p:name="재미있는 스프링"
+		p:price="35000"
+		p:publisher="쌍용교육센터"/>
+	
+	<bean id="bookDao" class="com.sist.exam07.BookDao"
+		p:book-ref="book"
+		p:cnt="10"/>
+	
+</beans>

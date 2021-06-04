@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let arr_food_list;
+	$("#btnAdd").click(function(){
+		$.ajax("foodListDB.jsp",{success:function(data){		
+			arr_food_list = data;
+			alert("데이터를 읽어왔습니다");
+		}})
+	});
+	
+	$("#btnView").click(function(){
+		$("#ul_food_list").empty();
+		for(f  of arr_food_list){
+			let li = $("<li></li>").text(f.name);
+			$("#ul_food_list").append( li );
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h2>직장인이 선호하는 점심메뉴</h2>
+	<ul id="ul_food_list">		
+	</ul>	
+	<button id="btnAdd">서버에게 데이터 요청(Ajax)</button>
+	<button id="btnView">출력</button>
+	
+	
+</body>
+</html>

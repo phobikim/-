@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnOK").onclick = function(){
+		var age = document.getElementById("age").value;
+		if(isNaN(age)){
+			alert("나이는 숫자로 입력해 주세요!");
+			return;
+		}
+		document.getElementById("F").submit();
+	}
+}
+</script>
+</head>
+<body>
+
+	<form id="F" action="joinOk.jsp" method="post">
+		이름 : <input type="text" name="name"><br>
+		나이 : <input type="text" name="age" id="age"><br>
+		<input id="btnOK" type="button" value="확인">
+	</form>
+</body>
+</html>

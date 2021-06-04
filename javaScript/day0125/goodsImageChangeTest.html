@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let goodsImage = document.querySelector("#goodsImage");
+	
+	document.querySelector("#btnBall").onclick = function(){
+		//goodsImage.src = "./images/ball1.jpg";
+		goodsImage.setAttribute("src","./images/ball1.jpg")
+	}
+	
+	document.querySelector("#btnShoe").onclick = function(){
+		goodsImage.src = "./images/cloth1.jpg";
+	}
+	
+	document.querySelector("#btnCloth").onclick = function(){
+		goodsImage.src = "./images/shoe1.jpg";
+	}
+	
+	document.querySelector("#btnStock").onclick = function(){
+		goodsImage.src = "./images/stock1.jpg";
+	}
+	
+	
+}
+</script>
+
+</head>
+<body>
+	<button id="btnBall">축구공</button>
+	<button id="btnShoe">축구화</button>
+	<button id="btnCloth">유니폼</button>
+	<button id="btnStock">스타킹</button>
+	<hr>
+	<img id="goodsImage">
+</body>
+</html>

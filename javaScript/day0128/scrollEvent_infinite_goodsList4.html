@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.goods{
+		width: 300px;
+		height: 180px;
+		border: solid 2px pink;
+		margin: 5px;
+		padding: 5px;	
+		border-radius: 10px;
+	}	
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+let goods_list = [
+	{no:1, name:"축구공1",price:15000,qty:10,fname:"ball1.jpg"},
+	{no:2, name:"축구공2",price:25000,qty:10,fname:"ball2.jpg"},
+	{no:3, name:"축구공3",price:35000,qty:10,fname:"ball3.jpg"},
+	{no:4, name:"축구공4",price:45000,qty:10,fname:"ball4.jpg"},
+	{no:5, name:"축구공5",price:55000,qty:10,fname:"ball5.jpg"},
+	{no:6, name:"유니폼1",price:105000,qty:10,fname:"cloth1.jpg"},
+	{no:7, name:"유니폼2",price:106000,qty:10,fname:"cloth2.jpg"},
+	{no:8, name:"유니폼3",price:107000,qty:10,fname:"cloth3.jpg"},
+	{no:9, name:"유니폼4",price:109000,qty:10,fname:"cloth4.jpg"},
+	{no:10, name:"유니폼5",price:109000,qty:10,fname:"cloth5.jpg"},
+	{no:11, name:"축구화1",price:55000,qty:10,fname:"shoe1.jpg"},
+	{no:12, name:"축구화2",price:65000,qty:10,fname:"shoe2.jpg"},
+	{no:13, name:"축구화3",price:75000,qty:10,fname:"shoe3.jpg"},
+	{no:14, name:"축구화4",price:85000,qty:10,fname:"shoe4.jpg"},
+	{no:15, name:"축구화5",price:95000,qty:10,fname:"shoe5.jpg"},
+	{no:16, name:"스타킹1",price:5500,qty:10,fname:"stock1.jpg"},
+	{no:17, name:"스타킹2",price:6500,qty:10,fname:"stock2.jpg"},
+	{no:18, name:"스타킹3",price:7500,qty:10,fname:"stock3.jpg"},
+	{no:19, name:"스타킹4",price:8500,qty:10,fname:"stock4.jpg"},
+	{no:20, name:"스타킹5",price:9500,qty:10,fname:"stock5.jpg"}
+	]
+	
+	$(function(){
+		let insert_goods = function(){
+			$.each(goods_list, function(i, item){
+				let div = $("<div></div>").addClass("goods");
+				
+				let table = $("<table></table>");
+				let tr = $("<tr></tr>");
+				let td1 = $("<td></td>");
+				let td2 = $("<td></td>");
+				
+				
+				let img = $("<img></img>").attr({
+					src:`./images/${item.fname}`,
+					width:100,
+					height:100
+				})
+				
+				let no = $("<p></p>").html(`상품번호:${item.no}`);
+				let name = $("<p></p>").html(`상품명:${item.name}`);
+				let price = $("<p></p>").html(`가격:${item.price}`);
+				let qty = $("<p></p>").html(`수량:${item.qty}`);
+				
+				$(td1).append(img);
+				$(td2).append(no,name,price,qty);
+				
+				$(tr).append(td1,td2);
+				$(table).append(tr);
+				$(div).append(table);
+				
+				$("body").append(div);
+			});
+		}
+		
+		insert_goods();
+		
+		$(window).scroll(function(){
+			let sh = $(window).scrollTop() + $(window).height();
+			let dh = $(document).height();
+			if((sh+200) >= dh){
+				insert_goods();
+			}
+		});
+		
+	});
+	
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+window.onload = function(){
+	
+	
+	document.querySelector("#btnChange").onclick = function(){
+		
+		list = document.querySelectorAll("h1");	
+		for(h of list){
+			h.style.backgroundColor = "pink";
+			h.innerHTML = "재미있는 자바스크립트!";
+		}
+		
+	}
+	
+	
+}
+</script>
+</head>
+<body>
+	<h1>홍길동</h1>
+	<h1>이순신</h1>
+	<h1>유관순</h1>
+	<button id="btnChange">바꾸기</button>
+</body>
+</html>

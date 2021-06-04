@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+let arr = [];
+window.onload = function(){
+	document.getElementById("btnAddList").onclick = function(){
+		arr.push( document.getElementById("input").value  );
+	}
+	
+	document.getElementById("btnListView").onclick = function(){
+		r = "<ul>";
+		for(v of arr){
+			r += `<li>${v}</li>`;
+		}		
+		r += "</ul>";
+		document.getElementById("result").innerHTML = r;
+	}
+}
+</script>
+</head>
+<body>
+	<input type="text" id="input"><button id="btnAddList">추가</button>
+	<hr>
+	<div id="result"></div>
+	<button id="btnListView">목록 출력</button>	
+</body>
+</html>
+
+
+
+

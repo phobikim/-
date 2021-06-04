@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="sistUtil.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnOK").onclick = function(){
+		//6903151234567
+		let r = "";
+		let name = document.getElementById("name").value;
+		let number = document.getElementById("number").value;
+		if(!isValidSocialNumber(number)){
+			alert("올바른 주민번호를 입력하세요!");
+			return;
+		}
+		
+		let user_year = Number(number.substr(0,2));
+		let gender = number.charAt(6);
+		if(gender == 1 || gender == 2 || gender == 5 || gender == 6){
+			user_year += 1900;
+		}else{
+			user_year += 2000;
+		}
+		
+		let this_year = (new Date()).getFullYear();
+		let age = this_year - user_year  + 1;
+		if(age >= 40 && this_year % 2 == user_year % 2){
+			r = `${name}님 ${this_year}년에 무료 암검진 대상자 입니다.<br>`;
+			r += "무료 암검진 항목은 위암,간암";
+			if(age >= 50){
+				r += ",대장암";
+			}
+			if(gender == '2'){
+				r += ",유암암,자궁암"
+			}
+			r += "입니다.";
+		}else{
+			r = `${name}님 ${this_year}년에 무료 암검진 대상자가 아닙니다.`;
+		}
+		
+		document.getElementById("result").innerHTML = r;
+	}
+}
+</script>
+</head>
+<body>
+	이름 : <input type="text" id="name"><br>
+	주민번호 : <input type="text" id="number"><br>
+	<button id="btnOK">무료 암검진 확인</button><br>
+	결과 : <span id="result"></span>
+</body>
+</html>

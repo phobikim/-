@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let person_list = [{
+						name:"홍길동",
+						age:20,
+						addr:"서울",
+						},
+						{
+							name:"이순신",
+							age:21,
+							addr:"광주",
+							},
+						{
+							name:"유관순",
+							age:22,
+							addr:"부산",
+							}
+	]
+	
+	function info(person){
+		console.log(`이름: ${person.name}, 나이:${person.age}, 주소:${person.addr}`);
+	}
+	
+	
+	
+	for(let p of person_list){
+		info(p);
+	}
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnOK").onclick = function(){
+		let request = new XMLHttpRequest();
+		request.open("GET","hello.jsp",false);
+		request.send();
+		let data =  eval("("+ request.responseText +")");				
+		document.querySelector("#name").innerHTML = data.name;
+		document.querySelector("#age").innerHTML = data.age;
+
+	}
+}
+</script>
+</head>
+<body>
+<button id="btnOK">Ajax통신하기</button>
+<hr>
+이름 : <span id="name"></span><br>
+나이 : <span id="age"></span>
+</body>
+</html>

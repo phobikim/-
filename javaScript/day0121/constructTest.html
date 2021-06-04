@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Person(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	
+	Person.prototype.info = function(){
+		console.log(`이름: ${this.name}, 나이:${this.age}`);
+	}
+	
+	let kim = new Person("김유신",20);
+	let lee = new Person("이순신",21);
+	console.log(kim);
+	console.log(lee);
+	kim.info();
+	lee.info();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	let viewMember = function(data){
+		$.each(data, function(i,item){
+			let tr = $("<tr></tr>");
+			let td_id = $("<td></td>").html(item.id);
+			let td_name = $("<td></td>").html(item.name);
+			let td_email = $("<td></td>").html(item.email);
+			
+			$(tr).append(td_id,td_name,td_email);
+			$("#memberList").append(tr);
+		});
+	}
+	
+	
+	$("#btnOK").click(function(){
+		$.ajax("listMember.jsp",{success:function(data){
+			viewMember(data);
+		}});
+		
+		
+		
+	})
+})
+</script>
+</head>
+<body>
+<button id="btnOK">회원정보 읽어오기</button>
+<hr>
+<table border="1">
+	<thead>
+		<tr>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>이메일</th>
+		</tr>
+	</thead>
+	<tbody id="memberList">
+	</tbody>
+</table>
+<hr>
+<textarea rows="10" cols="60"></textarea>
+
+</body>
+</html>

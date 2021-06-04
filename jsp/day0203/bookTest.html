@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({url:"bookList.jsp",success:function(xml){
+		let book_list = $(xml).find("book");
+		//$.each( 배열이름, 함수   );
+		$.each(book_list, function(index, book){
+			let no = $(book).find("no").text();
+			let name = $(book).find("name").text();
+			let publisher = $(book).find("publisher").text();
+			let price = $(book).find("price").text();
+			
+			let tr = $("<tr></tr>");
+			$("<td></td>").html(no).appendTo(tr);
+			$("<td></td>").html(name).appendTo(tr);
+			$("<td></td>").html(publisher).appendTo(tr);
+			$("<td></td>").html(price).appendTo(tr);
+			
+			$("#bookList").append(tr);
+			
+		});
+	}})
+});
+</script>
+</head>
+<body>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>도서번호</th>
+				<th>도서이름</th>
+				<th>출판사</th>
+				<th>가격</th>
+			</tr>
+		</thead>
+		<tbody id="bookList"></tbody>
+	</table>
+	
+</body>
+</html>
+
+
+
+
+
+
+

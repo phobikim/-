@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+#man{
+	position: absolute;
+	left: 10px;
+	top: 400px;
+}
+</style>
+
+<script type="text/javascript">
+window.onload = function(){
+	let man_list = ["man01.png","man02.png","man03.png","man04.png"];
+	let x = 10; 
+	let idx = 0;
+	setInterval( function(){
+		let fname = `./images/${man_list[idx++]}`
+		if(idx >= man_list.length){
+			idx = 0;
+		}		
+		x += 10;
+		
+		document.getElementById("man").src = fname;
+		document.getElementById("man").style.left = x + "px";
+		
+	} , 100  );
+}
+</script>
+
+</head>
+<body>
+<img id="man"  src="">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

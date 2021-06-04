@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnOK").click(function(){
+		//$.ajax("서비스명",{success:function(변수명){}})
+		$.ajax("hello_delay.jsp",{success:function(data){
+			$("#name").html( data.name  );
+			$("#age").html(data.age );
+		}});
+	});
+});
+</script>
+</head>
+<body>
+<button id="btnOK">Ajax통신하기</button>
+<hr>
+이름 : <span id="name"></span><br>
+나이 : <span id="age"></span><br>
+<hr>
+<textarea rows="10" cols="60"></textarea>
+
+</body>
+</html>

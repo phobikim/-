@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+#goods_list{	
+	padding: 30px;
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let arr = ["ball1.jpg","cloth1.jpg","shoe1.jpg","stock1.jpg"];
+	$("img").attr({
+		width:100,
+		height:100
+	});
+	
+	$("img").each(function(i){
+		$(this).attr("src",`./images/${arr[i]}`);
+	});
+	
+	
+	$("img").mouseover(function(){
+		//$(this).animate({속성},시간,함수)
+		$(this).animate({width:200,height:200},1000);
+	});
+	
+	$("img").mouseleave(function(){
+		$(this).animate({width:100,height:100},1000);
+	});
+	
+	$("#goods_list").mouseleave(function(){
+		$("img").clearQueue();
+		$("img").animate({width:100,height:100},1000);
+	});
+
+})
+</script>
+</head>
+<body>
+	<div id="goods_list">
+		<img >
+		<img >
+		<img >
+		<img >
+	</div>
+</body>
+</html>
+
+
+
+
+

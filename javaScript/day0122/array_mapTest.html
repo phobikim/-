@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+let data = [52,273,32,64,72];
+
+/*
+let data2 = [];
+for(i=0;i<data.length;i++){
+	data2.push(data[i]*data[i]);
+}*/
+
+let data2= data.map((item,index)=>{
+	return item*item;
+});
+
+
+console.log(data2);
+</script>
+</body>
+</html>

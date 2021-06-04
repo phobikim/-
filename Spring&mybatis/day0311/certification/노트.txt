@@ -1,0 +1,2 @@
+SmtpCompoent와 JoinController에 
+자신의 구글 계정과 암호를 설정하세요

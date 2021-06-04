@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		setTimeout(function(){
+			//let name = document.getElementById("name");
+			//let name = document.querySelector("#name");
+			//let name = document.querySelector("h1");
+			let name = document.querySelector(".name")
+			name.style.color = "blue";
+			name.style.border = "1px solid red";
+		},2000)		
+	}
+</script>
+</head>
+<body>
+	<h1 id="name" class="name">홍길동</h1>
+	<h2>서울시 마포구 서교동</h2>
+	<hr>
+	<h1 class="name">이순신</h1>
+	<h2>서울시 마포구 신수동</h2>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	function helloKim(){
+		console.log("안녕 김!")
+	}
+	
+	function helloLee(){
+		console.log("안녕 이!")
+	}
+	
+	function callThreeTimes( pro  ){
+		for(i = 0; i<3;i++){
+			pro();
+		}
+	}
+	
+	//callThreeTimes(   helloKim     );
+	//callThreeTimes(helloLee);
+	/*callThreeTimes(   function(){
+		alert("안녕 아무나~")
+	} );*/
+	
+	callThreeTimes();
+	
+	
+</script>
+</body>
+</html>
+
+
+
+

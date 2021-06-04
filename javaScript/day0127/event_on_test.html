@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("li").dblclick(function(){
+		$(this).remove();
+	});
+	
+	/*
+	$("li").on("dblclick",function(){
+		$(this).remove();
+	});*/
+});
+</script>
+</head>
+<body>
+	<ul>
+		<li>이순신</li>
+		<li>유관순</li>
+		<li>홍길동</li>
+		<li>강감찬</li>
+		<li>김유신</li>		
+	</ul>
+</body>
+</html>

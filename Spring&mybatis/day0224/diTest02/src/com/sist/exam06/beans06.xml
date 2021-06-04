@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- main 메소드를 작성하여 결과를 확인 해 봅니다. 
+			작업이 완료되면 채팅창에 "1"
+	-->
+	<!-- 
+	<bean id="sm" class="com.sist.exam06.SystemMonitor">
+		<constructor-arg>
+			<value>10</value>
+		</constructor-arg>
+	</bean>
+	-->
+	
+	<bean id="sm" class="com.sist.exam06.SystemMonitor">
+		<constructor-arg value="10"/>
+	</bean>
+</beans>

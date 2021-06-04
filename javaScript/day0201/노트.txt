@@ -1,0 +1,16 @@
+** 파일명을 변경할 때에는 
+	.class을 생성해 주기 위하여 
+	그 파일을 open하여 변경하여(빈곳에 엔터를 한번치고) 저장합니다!!!!!!
+	
+	
+원래이름 : 		MemberVo.java
+				MemberVo.class
+				
+파일이름만 변경하면 	MemberVO.java			Can not find MemberVO.class
+				그파일을 열어 엔터를 치고 저장하면 변경한 파일의 .class가 생성이 됩니다.
+				MemberVO.class
+
+				
+	
+	
+	

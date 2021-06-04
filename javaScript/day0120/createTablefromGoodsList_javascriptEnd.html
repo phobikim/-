@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+
+</head>
+<body>
+	<div id="result"></div>
+	<button id="btn_view_goodsList">상품 목록 출력</button>
+	
+	<script type="text/javascript">
+let goods_list = [
+	{fname:"ball1.jpg", name:"나이키공1",price:28000},
+	{fname:"ball2.jpg", name:"나이키공2",price:32000},
+	{fname:"ball3.jpg", name:"나이키공3",price:16000},
+	{fname:"ball4.jpg", name:"나이키공4",price:9000},
+	{fname:"ball5.jpg", name:"나이키공5",price:45000}
+	]
+	
+
+	document.getElementById("btn_view_goodsList").onclick = function(){
+		let r = "<table border='1'>";
+		for(g of goods_list){
+			r += "<tr>";
+			for(i in g){
+				if(i == 'fname'){
+					r += `<td><img src='./images/${g[i]}' width='100' height='100'></td>`;
+				}else{
+					r += `<td>${g[i]}</td>`;
+				}
+			}
+			r += "</tr>";
+		}//end for
+		r += "</table>"
+		document.getElementById("result").innerHTML = r;
+	}
+
+
+	
+</script>
+	
+</body>
+</html>
+

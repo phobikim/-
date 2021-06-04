@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let member_list = [
+		{name:'홍길동',age:20},
+		{name:'이순신',age:21},
+		{name:'유관순',age:22},
+		{name:'김유신',age:21},
+		{name:'문재인',age:24}
+		]
+	
+	//each함수를 사용하여 회원들의 평균나이를 계산하여 출력 해 봅니다.
+	let tot = 0;
+	$(member_list).each(function(index, item){
+		tot += item.age;
+	});
+	let avg = tot /member_list.length;
+	alert("평균나이:"+avg)
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+

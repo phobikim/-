@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.high_light{
+		background-color: pink;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let clear_input = function(){
+		$("input[type=text]").val("");
+	}
+	
+	$("input[type=button]").click(function(){
+		let tr = $("<tr></tr>");
+		
+		let arr = $("input[type=text]");
+		let tot = 0;
+		for(i=0;i<arr.length; i++){
+			let td = $("<td></td>").text(   $(arr[i]).val()   );
+			if(i != 0){
+				tot +=  Number( $( arr[i]).val() );
+			}
+			$(tr).append(td);
+		}
+		let avg = tot/(arr.length-1);
+		$(tr).append(   $("<td></td>").text(tot) );
+		$(tr).append( $("<td></td>").text(avg) );
+		$("#student_list").append(tr);
+		clear_input();
+		
+		$(tr).click(function(){
+			$("tr").removeClass("high_light");
+			$(this).addClass("high_light");
+			
+			let td_list = $(this).find("td");
+			
+			for(i=0; i<arr.length;i++){
+				$(arr[i]).val( $(td_list[i]).text()  )
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+				<th>총점</th>
+				<th>평균</th>
+			</tr>
+		</thead>
+		<tbody id="student_list"></tbody>
+	</table>
+
+	이름 : <input type="text"><br>
+	국어 : <input type="text"><br>
+	영어 : <input type="text"><br>
+	수학 : <input type="text"><br>
+	<input type="button" value="등록">
+</body>
+</html>
+
+
+
+

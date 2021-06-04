@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.active{
+		background-color: red;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$( function(){	
+	let input_arr;   //입력양식중에 속성에 text인것의 배열을 위한 변수
+	let td_list;	 //선택한 행의 td목록을 담기위한 배열 변수
+	let sel_tr;		 //눌러진 행을 바라볼 변수
+	
+	let btn_list = $("input[type=button]");
+	
+	//empty()		==>자식노드를 삭제
+	//remove()		==>자기자신을 삭제
+	$(btn_list[2]).click(function(){
+		$(sel_tr).remove();
+	});
+	
+	
+	$(btn_list[1]).click(function(){			//수정
+		let tot = Number( $(input_arr[1]).val() ) +Number( $(input_arr[2]).val() ) +Number( $(input_arr[3]).val() )
+		let avg = tot/3;
+		for(i=0;i<input_arr.length; i++){
+			$(td_list[i]).text(  $(input_arr[i]).val()  )
+		}
+		$(td_list[4]).text(tot);   
+		$(td_list[5]).text(avg);
+	});
+	
+	$(btn_list[0]).click( function(){			//등록
+		input_arr = $("input[type=text]");
+		let tr = $("<tr></tr>");
+		
+		$(tr).click(function(){
+			sel_tr = $(this);
+			$("tr").removeClass("active");
+			$(this).addClass("active");
+			td_list = $(this).find("td");
+			for(i=0; i<input_arr.length; i++){
+				$(input_arr[i]).val( $(td_list[i]).text()   );
+			}
+		});
+				
+		let tot = 0;
+		for(i = 0; i<input_arr.length; i++){
+			let td = $("<td></td>").text( $(input_arr[i]).val()  );
+			if(i != 0){
+				tot += Number($(input_arr[i]).val());
+			}
+			$(tr).append(td);
+		}
+		avg = tot / (input_arr.length - 1);
+		$(tr).append( $("<td></td>").text(tot) );
+		$(tr).append( $("<td></td>").text(avg) );
+		$("tbody").append(tr);
+		$("input[type=text]").val("");
+	})
+})
+</script>
+</head>
+<body>
+<table border="1" width="80%">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+			<th>총점</th>
+			<th>평균</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+<hr>
+이름 : <input type="text"><br>
+국어 : <input type="text"><br>
+영어 : <input type="text"><br>
+수학 : <input type="text"><br>
+<input type="button" value="등록">
+<input type="button" value="수정">
+<input type="button" value="삭제">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

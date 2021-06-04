@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="smsSender" class="com.sist.exam07.SmsSender">
+		<constructor-arg value="시스템"/>
+		<constructor-arg value="핸드폰"/>
+	</bean>
+	
+	<bean id="sm" class="com.sist.exam07.SystemMonitor">
+		<constructor-arg value="10"/>
+		<constructor-arg ref="smsSender"/>
+	</bean>
+	
+	<!-- main메소드를 작성하여 결과를 학인해 봅니다.
+			완성이되면 채팅창에 "1"
+	 -->
+	
+</beans>

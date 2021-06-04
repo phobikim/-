@@ -1,0 +1,3 @@
+Ajax ( Asynchronouse Javascript And XML  )
+
+request.open("요청방식","서비스명",비동기여부);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("#btnAttrAdd").onclick = function(){
+		//document.querySelector("#ballImage").src = "";
+		//document.querySelector("#ballImage").setAttribute("src","");
+		
+		//document.querySelector("#ballImage").index = 100;
+		document.querySelector("#ballImage").setAttribute("index",100)
+	}
+	
+	document.querySelector("#btnAttrRead").onclick = function(){
+		let idx=document.querySelector("#ballImage").getAttribute("index");
+		//let idx=document.querySelector("#ballImage").index;
+		alert(idx);
+		//let src=document.querySelector("#ballImage").src;
+		//alert(src);
+	}
+}
+</script>
+</head>
+<body>
+	<img id="ballImage" src="./images/ball1.jpg" width="100" height="100"><br>
+	<button id="btnAttrAdd">속성추가</button>
+	<button id="btnAttrRead">속성읽어오기</button>
+</body>
+</html>

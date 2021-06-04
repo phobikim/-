@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		let arr = [2,3,4,5,6,7,8,9,2,3,4,5];
+		let tot = 0;
+		//6903151234567
+		document.getElementById("btnOK").onclick = function(){
+			let number = document.getElementById("number").value;
+			let check = number.charAt(12);
+			for(i = 0; i<number.length-1; i++){
+				  tot +=  arr[i] * number.charAt(i) ;
+			}
+			tot %= 11;  
+			tot = 11-tot;
+			if(tot >= 10 ){
+				tot -= 10;
+			}
+			
+			if(tot == check){
+				document.getElementById("result").innerHTML = "올바른 주민번호 입니다.";
+			}else{
+				document.getElementById("result").innerHTML = "올바른 주민번호가 아닙니다.";
+			}
+			
+		}
+	}
+</script>
+</head>
+<body>
+	주민번호 : <input type="text" id="number">-을 생략하고 입력<br>
+	<button id="btnOK">확인</button><br>
+	결과 : <span id="result"></span>	
+</body>
+</html>

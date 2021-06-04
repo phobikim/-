@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		document.getElementById("btnAdd").onclick = function(){
+			let tr = document.createElement("tr");
+			let td_name = document.createElement("td");
+			let td_age = document.createElement("td");
+			
+			let txt_name = document.createTextNode("홍길동");
+			let txt_age = document.createTextNode("20");
+			
+			//부모노드.appendChild(자식노드)
+			td_name.appendChild(txt_name);
+			td_age.appendChild(txt_age);
+			
+			tr.appendChild(td_name);
+			tr.appendChild(td_age);
+			
+			document.getElementById("memberList").appendChild(tr);
+		}
+	}
+</script>
+</head>
+<body>
+	<table id='memberList' border="1">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>			
+		</tr>
+	</table>
+	<button id="btnAdd">추가</button>
+</body>
+</html>

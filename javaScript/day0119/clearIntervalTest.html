@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let viewID;
+	
+	document.getElementById("btnStart").onclick = function(){
+		viewID = setInterval(()=>{
+			let today = new Date();
+			let hours = today.getHours();
+			let minutes = today.getMinutes();
+			let seconds = today.getSeconds();
+			let r = `현재 시각은 ${hours}시 ${minutes}분  ${seconds}초입니다.`;
+			document.getElementById("result").innerHTML = r;
+		},1000);
+	}
+	
+	document.getElementById("btnStop").onclick = function(){
+		clearInterval( viewID );
+	}
+}
+</script>
+</head>
+<body>
+	<h2 id="result"></h2>
+	<button id="btnStart">시작</button>
+	<button id="btnStop">중지</button>
+</body>
+</html>
+
+
+
+

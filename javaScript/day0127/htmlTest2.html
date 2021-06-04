@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	let name_list = [];
+	$(function(){		
+		// h1노드의 모든 사람이름을  name_list에 담아봅니다.
+		$("h1").each(function(){
+			name_list.push(  $(this).html()   );  
+		});
+		
+		$.each(name_list, function(i,data){
+			console.log( data  );
+		});
+		
+		
+	})
+</script>
+</head>
+<body>
+	<h1>이순신</h1>
+	<h1>유관순</h1>
+	<h1>김유신</h1>	
+</body>
+</html>

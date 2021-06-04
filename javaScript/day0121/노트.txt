@@ -1,0 +1,41 @@
+create table food(
+	no number primary key,
+	name varchar2(30)
+);
+
+insert into food values(1, '짜장면');
+insert into food values(2, '짬뽕');
+insert into food values(3, '백반');
+insert into food values(4, '피자');
+
+
+
+===========================================================================
+
+네트워크 상에서 이기종간에 데이터를 주고 받는 형식
+	==> csv, xml, json
+	
+	
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

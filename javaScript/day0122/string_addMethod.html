@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+String.prototype.contain = function(word){
+	return this.indexOf(word) >= 0;
+}
+
+let data = "hello java hello korea";
+
+let search = "kim";
+if(data.contain(search)){
+	alert(`${search}를 포함하고 있어요`);
+}else{
+	alert(`${search}를 포함하고 있지 않아요`)
+}
+
+function Person(name,age){
+	this.name = name;
+	this.age = age;
+}
+
+Person.prototype.info = function(){
+	console.log(this.name + "," + this.age);
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

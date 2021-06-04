@@ -1,0 +1,9 @@
+
+
+jsp가 아닌, html에서 상태유지 하고 싶어요!!
+===> localStorage, sessionStorage
+
+https://www.w3schools.com/jsref/prop_win_sessionstorage.asp
+
+
+

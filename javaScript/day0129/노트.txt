@@ -1,0 +1,15 @@
+숙제) Ajax통신을 통하여 
+		회원등록, 목록, 수정, 삭제를 
+		구현해 봅니다.
+
+
+create table book(
+	no number primary key,
+	name varchar2(50),
+	publisher varchar2(50),
+	price number
+);
+
+insert into book values(1,'재미있는 자바', '쌍용교육센터', 30000);
+insert into book values(2,'즐거운 프로그래밍', '한빛출판사', 32000);
+insert into book values(3,'신나는 프로그래밍', '금빛출판사', 33000);

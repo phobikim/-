@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+/*
+	자바스크립트의 쿠기를 이용하여 상품목록에서 가장 최근에 선택한 5개의 상품뽑아오기
+	(단, 중복되지 않게)
+ 	참고 : https://www.w3schools.com/js/js_cookies.asp
+ */
+
+
+//쿠키생성을 위한 함수
+function setCookie(cname, cvalue, exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	  var expires = "expires="+d.toUTCString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+	
+//쿠키삭제를 위한 함수	
+function delCookie(cname) {
+	  var d = new Date();
+	  document.cookie = cname + "=;path=/";
+	}
+	
+	
+	
+//쿠키값을 갖고 오기 위한 함수
+	function getCookie(cname) {
+	  var name = cname + "=";
+	  var ca = document.cookie.split(';');
+	  for(var i = 0; i < ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+	}
+	
+	
+
+	$(function(){
+		list = [];
+		
+		$("li").click(function(){	
+			list = getCookie("list");
+			if(list != ''){
+				list += ",";
+			}
+			list +=$(this).text();
+			
+			setCookie("list", list, 30);
+			showTop5();
+		});
+		
+		function showTop5(){
+			list = getCookie("list");
+			console.log(list);
+			list = list.split(","); //문자열을 배열로 만들기
+			list = list.reverse(); //가장 최근의 항목 뽑아오기 위하여 배열을 반전시킴
+			list = Array.from( new Set(list) ); // 중복된 데이터 제거 위하여 Set을 이용, 다시 배열로 만듬.
+			n = 5;  						// 5개 뽑아오기 위하여 n에 5를 설정함.
+			if(list.length < n){   			// 만약 최근에 본 목록이 5개가 되지 않을때는 최근에 본 목록 만큼만 보여줌.
+				n = list.length;
+			}
+			
+			$("#lately").empty();
+			console.log(typeof(list));
+			for(i = 0; i<n; i++){			// n개의 만큼 출력
+				console.log(list[i]);
+				let li = $("<li></li>").html(list[i]);
+				$("#lately").append(li);
+			}
+			console.log("-----------------------------------")
+		}
+		
+		$("#btnDel").click(function(){
+			delCookie("list");					// 쿠키삭제
+		});
+	});
+	
+	
+
+	
+</script>
+</head>
+<body>
+	<h2>상품목록</h2>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<button id="btnDel">쿠키삭제</button>
+	<hr>
+	<h3>최근에 본 상품 목록</h3>
+	<ul id="lately">
+	</ul>
+</body>
+</html>

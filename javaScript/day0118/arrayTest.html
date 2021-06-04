@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = ["가족","건강","가치관","사랑","친구","돈"]
+		
+		window.onload = function(){
+			document.getElementById("btnOK").onclick = function(){
+				var r = "<ul>";
+				for(i=0;i<arr.length;i++){
+					//r += "<li>"+arr[i]+"</li>";
+					r += `<li>${arr[i]}</li>`;
+				}
+				r += "</ul>";
+				document.getElementById("result").innerHTML = r;
+			}
+		}
+	</script>
+</body>
+
+<div id="result"></div>
+<hr>
+<button id="btnOK">확인</button>
+</html>
+
+
+
+
+
+
+
+
+
+

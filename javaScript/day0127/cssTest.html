@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#man").attr("src","./images/man.png");
+	$("#man").css({
+		position:"absolute",
+		left:20,
+		top:500
+	})
+	let x = $("#man").css("left");
+	alert(x);
+	setTimeout(function(){
+		$("#man").css("left",100);
+		x = $("#man").css("left");
+		alert(x);
+	},1000);
+	
+});
+</script>
+</head>
+<body>
+	<img id="man">	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#ball").attr("src","./images/redBall.png");
+	
+	let x = 10;
+	let y = 500;
+	let x_step = 10;
+	let y_step = -10;
+	
+	//$("#ball").css("position","absolute");
+	//$("#ball").css("left",x);
+	//$("#ball").css("top",y);
+	$("#ball").css({
+		position:"absolute",
+		left:x,
+		top:y
+	});
+	
+	//x  = parseInt( $("#ball").css("left"));
+	//alert(x);
+	
+	
+	
+	setInterval(function(){
+		if(y<=0 || y >= (window.innerHeight - 50)){
+			y_step *= -1;
+		}
+		
+		if((x+50) >= window.innerWidth || x <= 0){
+			x_step *= -1;
+		}
+		
+		x = parseInt($("#ball").css("left")) + x_step;
+		y = parseInt($("#ball").css("top")) + y_step;
+		$("#ball").css({left:x,top:y});
+	} , 100 );
+	
+	
+	
+	
+})
+</script>
+</head>
+<body>
+<img id="ball">
+</body>
+</html>

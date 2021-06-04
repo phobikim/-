@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let member_list = [];
+	
+	let listMember = function(){
+		let r = "<table border='1'>";
+		r += "<tr><td>이름</td><td>나임</td><td>주소</td><td>전화</td></tr>";
+		
+		for(m of member_list){
+			r += "<tr>";
+			for(i in m){
+				r += `<td>${m[i]}</td>`;
+			}
+			r += "</tr>";
+		}
+			
+		r += "</table>";
+		document.getElementById("result").innerHTML = r;
+	}
+	
+	
+	
+	document.getElementById("btnAdd").onclick = function(){
+		let name = document.getElementById("name").value;
+		let age = Number(document.getElementById("age").value);
+		let addr = document.getElementById("addr").value;
+		let tel = document.getElementById("tel").value;
+		
+		let member = {name:name,age:age,addr:addr,tel:tel }
+		member_list.push(member);	
+		
+		document.getElementById("name").value = "";
+		document.getElementById("age").value = "";
+		document.getElementById("addr").value = "";
+		document.getElementById("tel").value = "";
+		
+		listMember();
+	}
+	
+	document.getElementById("btnView").onclick = function(){
+		listMember();
+	}
+	
+}
+</script>
+</head>
+<body>
+	<div id="result"></div>
+	이름 : <input type="text" id="name"><br>
+	나이 : <input type="text" id="age"><br>
+	주소 : <input type="text" id="addr"><br>
+	전화 : <input type="text" id="tel"><br>
+	<button id="btnAdd">등록</button>
+	<button id="btnView">출력</button>
+</body>
+</html>
+
+
+
+
+

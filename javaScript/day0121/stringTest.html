@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let email = "tiger@naver.com";
+		//이메일로부터 아이디만 뽑아서 출력해 봅니다.
+		//이메밀로부터 회사이름을 뽑아서 출력해 봅니다.
+		
+		let id = email.substring(0,email.indexOf("@"));
+		alert(id);
+		
+		let company = email.substring( email.indexOf("@") +1 ,  email.indexOf(".") );
+		alert(company);
+		
+	</script>
+</body>
+</html>

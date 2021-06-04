@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let news_list = [
+		"안철수 어떤 결과든 승복, 국민의힘 경선 플랫폼 개방하라",
+		"아동반품 아냐\" \"생트집 중단해라\"…文실언 수습나선 당청",
+		"댓글공장 만든 '1타강사' 박광일···1년만에 드러난 추악한 비리",
+		"가습기 살균제 성분과 사람의 천식 질환 간 인과성 있어",
+		"이익공유제, 與 금융권으로 화살… 임대료 뿐 아니라 은행 이자도 멈춰야"];
+	
+	let n = 0;				//몇번째 뉴스인지 사용할 인덱스
+	let word_count = 1;  	//몇글자씩 가져올 것인지 사용할 변수
+	setInterval( ()=>{
+		let line = news_list[n];
+		let word = line.substr(0,word_count++);	
+		if(word_count > line.length){
+			n++;
+			word_count = 1;
+		}
+		document.getElementById("news").innerHTML = word  ;		
+		if(n >= news_list.length){
+			n = 0;
+		}
+	} , 50);
+	
+</script>
+</head>
+<body>
+<p id="news"></p>
+</body>
+</html>
+
+
+

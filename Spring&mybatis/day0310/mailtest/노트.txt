@@ -1,0 +1,10 @@
+- SmtpCompoent 에서 다음을 설정합니다.
+		r.setUsername("");
+		r.setPassword("");
+		
+- HtmlMailController 에서 다음을 설정합니다.
+		message.setFrom("");
+		
+- CustomerController 에서 다음을 설정합니다.
+		mailMessage.setFrom("");
+			

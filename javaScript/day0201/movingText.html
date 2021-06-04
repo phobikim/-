@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		function nextRandomInteger(limit){
+			return Math.round( Math.random() * limit  );
+		}
+		
+		let alphbet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		let color_arr  = ["red","green","blue","black","yellow","pink","gray"];
+		
+		let randomAlphabet=function(){
+			return alphbet.charAt(  nextRandomInteger(25)  )
+		}	
+		
+		let randomSpeed = function(maxSpeed){
+			return Math.random()*maxSpeed - Math.random() * maxSpeed;
+		}
+		
+		
+		let canvasWidth = 700;
+		let canvasHeight = 500;
+		
+		function MovingText(){
+			this.x = nextRandomInteger(canvasWidth);
+			this.y = nextRandomInteger(canvasHeight);
+			this.vX = randomSpeed(10);
+			this.vY = randomSpeed(10);
+			this.h1 = document.createElement("h1");
+			this.h1.style.position = 'absolute';
+			this.h1.style.color = color_arr[nextRandomInteger(color_arr.length)];
+			this.h1.innerHTML = randomAlphabet();
+			document.body.appendChild(this.h1);
+		}
+		
+		MovingText.prototype.move = function(){
+			
+			if(this.x < 0 || this.x > canvasWidth){
+				this.vX *= -1;
+			}
+			
+			if(this.y <0 || this.y > canvasHeight){
+				this.vY *= -1;
+			}
+			this.x += this.vX;
+			this.y += this.vY;
+			
+			this.h1.style.left= this.x + "px";
+			this.h1.style.top = this.y + "px";
+			
+		}
+		/*
+		let a = new MovingText();
+		setInterval(function(){
+			a.move();
+		},100);*/
+		
+		let arr = [];
+		for(i=0;i<100; i++){
+			arr.push( new  MovingText() );			
+		}
+		
+		setInterval(function(){
+			for(m of arr){
+				m.move();
+			}
+		},1000/60);
+		
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+

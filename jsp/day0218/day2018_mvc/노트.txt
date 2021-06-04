@@ -1,0 +1,5 @@
+insertBook.do			==> SistController
+	==> 도서등록					---> insertBook.jsp				
+	
+listBook.do				==> SistController
+	==> 도서목록					---> listBook.jsp

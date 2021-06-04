@@ -1,0 +1,27 @@
+create table customer(
+	no number primary key,
+	name varchar2(20), 
+	email varchar2(50),
+	phone varchar2(50),
+	tot number
+);
+
+insert into customer values(seq_customer.nextval, '김은영', 'rola70@nate.com','01025598279', 1000);
+insert into customer values(seq_customer.nextval, '함혜림', 'dtdad@naver.com', '01041620338',20000);
+insert into customer values(seq_customer.nextval, '정소윤', 'so.yun@kakao.com', '01033858201', 89000);
+insert into customer values(seq_customer.nextval,'장일규','jewelrye@hanmail.net', '01066827082',54321);
+insert into customer values(seq_customer.nextval, '남혜진', 'vi05@naver.com','01086469577', 32000);
+insert into customer values(seq_customer.nextval, '최은혜', 'el0525h@gmail.com','01044722407', 114000);
+insert into customer values(seq_customer.nextval,'신용주', 'yjshin4817@gmail.com','01023826857', '98765');
+insert into customer values (seq_customer.nextval, '박권익', 'bakkinowk@gmail.com', '01037621589', 46400);
+insert into customer values(seq_customer.nextval, '정예진', 'genieee72@gmail.com', '01026499684', 72000);
+INSERT INTO CUSTOMER VALUES(SEQ_CUSTOMER.NEXTVAL,’이우길’,’lwg2285@gmail.com’,’01066832285’,99999);
+insert into customer values(seq_customer.nextval, '신지영', 'compdiva@naver.com', '01056769201',20000);
+insert into customer values(seq_customer.nextval,'김현규','hyeon030111@naver.com','01029065780',33000);
+insert into customer values (seq_customer.nextval, ‘최혜원’, ‘noweyh.choi@gmail.com’, ‘01027280949’, 12000);
+insert into customer values(seq_customer.nextval, '박종휘', 'upiece1@gmail.com', '01025708321', 5000);
+insert into customer values(seq_customer.nextval, '서현익', 'hos0917@naver.com', '01089170471', 33333);
+
+
+
+

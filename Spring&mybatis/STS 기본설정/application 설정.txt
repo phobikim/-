@@ -1,0 +1,7 @@
+# application.properties ¼³Á¤
+
+server.port=8088
+server.session.timeout=36000
+
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp

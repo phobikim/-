@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btnSetAttr").click(function(){
+		$("img").attr("src","./images/stock1.jpg");
+	});
+	
+	$("#btnGetAttr").click(function(){
+		let src = $("img").attr("src");
+		alert(src);
+	});
+})
+
+</script>
+</head>
+<body>
+	<img width="100" height="100" src="./images/ball1.jpg">
+	<hr>
+	<button id="btnSetAttr">속성 설정하기</button>
+	<button id="btnGetAttr">속성 읽어오기</button>
+</body>
+</html>

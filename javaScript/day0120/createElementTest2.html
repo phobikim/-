@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnAdd").onclick = function(){
+		let food = document.getElementById("input").value;
+		let txt_food = document.createTextNode(food);
+		let li_food = document.createElement("li");
+		
+		li_food.appendChild(txt_food);
+		
+		document.getElementById("food_list").appendChild(li_food);
+		
+	}
+}
+</script>
+</head>
+<body>
+	<h2>직장인이 선호하는 점심메뉴</h2>
+	<ul id="food_list">
+		<li>된장찌게</li>
+		<li>설렁탕</li>
+	</ul>
+	
+	<input id="input" type="text">
+	<button id="btnAdd">추가</button>
+</body>
+</html>

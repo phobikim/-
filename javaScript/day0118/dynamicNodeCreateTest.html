@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnAdd").onclick = function(){
+		var r = "";
+		
+		r += "<ul>";
+		r += "<li>가족</li>";
+		r += "<li>건강</li>";
+		r += "<li>사랑</li>";
+		r += "<li>가치관</li>";
+		r += "<li>돈</li>";
+		r += "</ul>";
+		
+		document.getElementById("result").innerHTML = r;
+			
+	}	
+}
+</script>
+</head>
+<body>
+<div id="result"></div>
+<hr>
+<button id="btnAdd">동적 노드 추가</button>
+</body>
+</html>

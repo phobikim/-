@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	let r = "";
+	//0~255
+	for(let i=0;i<256;i++){
+		r += `<div>${i}</div>`;		
+	}
+	document.body.innerHTML = r;
+	
+	var div_list = document.querySelectorAll("div");
+	
+	for(i =0; i<div_list.length; i++){
+		console.log(i);
+		let div = div_list[i];		
+		div.style.height = "10px";
+		//div.style.background = "rgb("+i+","+i+","+i+")"
+		div.style.background = `rgb(${i},${i},${i})`;
+		div.style.color = "red";
+	}
+	
+}
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	let h1_list = $("h1");
+	console.log(h1_list.length);
+	for(i=0; i< h1_list.length; i++){
+		let h = h1_list[i];
+		if(i % 2 == 1){
+			$(h).css("backgroundColor","red");
+		}
+	}
+});
+</script>
+</head>
+<body>
+	<h1>이순신</h1>
+	<h1>유관순</h1>
+	<h1>홍길동</h1>
+	<h1>김유신</h1>
+</body>
+</html>

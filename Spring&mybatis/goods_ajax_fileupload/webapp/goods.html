@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//상품등록 시작
+	$("#btnInsert").click(function(){
+		let data = new FormData( document.getElementById("f") );
+		$.ajax({
+			url:"/insertGoods.do",
+			type:"post",
+			processData:false,
+			contentType:false,
+			data:data,
+			success:function(r){
+				alert(r);
+			}
+		});
+	});
+	
+	//상품등록 끝
+
+
+	//상품목록 시작
+	let arr;
+	$.ajax({url:"listGoods.do",success:function(data){		
+		arr = eval("("+data+")");
+		$.each(arr, function(index, g){
+			let tr = $("<tr></tr>");
+			let td1 = $("<td></td>").html(g.no);
+			let td2 = $("<td></td>").html(g.name);
+			$(tr).append(td1, td2);
+			$("#goodsList").append(tr);
+		});		
+	}});
+	//상품목록 끝
+	
+});
+</script>
+</head>
+<body>
+	<h2>상품목록</h2>
+	<table border="1" width="80%">
+		<thead>
+			<tr>
+				<th>상품번호</th>
+				<th>상품명</th>
+			</tr>
+		</thead>
+		
+		<tbody id="goodsList">
+		
+		</tbody>
+	</table>
+	<hr>
+	<form id="f" method="post" enctype="multipart/form-data">
+		상품번호 : <input type="text" name="no"><br>
+		상품이름 : <input type="text" name="name"><br>
+		상품수량 : <input type="text" name="qty"><br>
+		상품가격 : <input type="text" name="price"><br>
+		상품사진 : <input type="file" name="uploadFile"><br>
+		<button id="btnInsert">등록</button>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
